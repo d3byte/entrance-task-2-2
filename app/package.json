@@ -1,0 +1,19 @@
+{
+  "name": "ya.home",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "npm-run-all --parallel liveserver watch:scss ",
+    "liveserver": "live-server",
+    "watch:scss": "node-sass sass/main.scss css/style.css -w",
+    "build:scss": "node-sass sass/main.scss css/style.css --output-style compressed"
+  },
+  "dependencies": {
+    "live-server": "^1.2.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.2",
+    "npm-run-all": "^4.1.3"
+  }
+}
