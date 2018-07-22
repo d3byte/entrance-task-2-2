@@ -33,15 +33,16 @@
       pointer-events: none;
       user-select: none;
       -webkit-user-select: none; }
-  .termo-control .line {
+  .termo-control__line {
     width: 1px;
     height: 180px;
     position: absolute;
     z-index: 900px; }
-    .termo-control .line .content {
+    .termo-control__line .content {
       height: 15px;
-      background: #333333; }
-    .termo-control .line.active .content {
+      background: #333333;
+      transition: 0.3s; }
+    .termo-control__line--active .content {
       background: #f7c475; }
 
 body {

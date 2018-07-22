@@ -14,7 +14,7 @@
         justify-content: center;
         width: 150px;
         height: 150px;
-        box-shadow: -1px 0px 4px 0 rgba(134,121,71,0.45);
+        box-shadow: $shadow-gray;
         border-radius: 50%;
         z-index: 1000px;
         &__arrow {
@@ -36,19 +36,19 @@
     }
 
     
-
-    .line {
+    &__line {
         width: 1px;
         height: 180px;
         position: absolute;
         z-index: 900px;
         .content {
             height: 15px;
-            background: $text-black;
+            background: $black;
+            transition: 0.3s;
         }
-        &.active {
+        &--active {
             .content {
-                background: $orange-line;
+                background: $orange;
             }
         }
     }
