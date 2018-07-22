@@ -26,7 +26,7 @@ function Circular(options, element) {
 
     const containerSize = {
         x: 150,
-        y: 150
+        y: 150  
     }
 
     const arrowSize = {
@@ -113,7 +113,7 @@ function Circular(options, element) {
     }
 }
 
- function createController() {
+ function createController(activeDeg = 180) {
     const offset = {
         x: 70,
         y: 70
@@ -126,8 +126,8 @@ function Circular(options, element) {
         const line = document.createElement('div')
         const content = document.createElement('div')
         content.classList.add('content')
-        line.classList.add('line')
-        currentDeg < 180 && line.classList.add('active')
+        line.classList.add('termo-control__line')
+        currentDeg < activeDeg && line.classList.add('termo-control__line--active')
         line.style.transform = `rotate(${currentDeg}deg)`
         const bottom = div.scrollHeight
 
@@ -135,7 +135,7 @@ function Circular(options, element) {
         div.appendChild(line)
         currentDeg += 3
     }
-    lines = document.querySelectorAll('.line')
+    lines = document.querySelectorAll('.termo-control__line')
  }
 
  createController()
@@ -155,9 +155,9 @@ function updateLines(angle) {
     let currentDeg = -60
     for (let line of lines) {
         if (currentDeg <= angle && angle !== -60) {
-            line.classList.add('active')
+            line.classList.add('termo-control__line--active')
         } else {
-            line.classList.remove('active')
+            line.classList.remove('termo-control__line--active')
         }
         currentDeg += 3
     }
