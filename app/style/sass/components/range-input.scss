@@ -4,8 +4,15 @@
     align-items: center;
     width: 300px;
 
-    &--vertical {
+    @mixin range-slider--vertical {
         transform: rotate(270deg);
+        .range-input__background__value {
+            transform: rotate(90deg);
+        }
+    }
+
+    &--vertical {
+        @include range-slider--vertical;
     }
 
     @mixin range-slider {
