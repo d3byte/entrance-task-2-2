@@ -1,6 +1,44 @@
 * {
   font-family: 'Arial', sans-serif; }
 
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 30px 40px;
+  border-bottom: 1px solid #F0F0F0; }
+  .navbar__logo {
+    width: 120px;
+    margin-right: 40px; }
+  .navbar__menu {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    .navbar__menu__item {
+      margin-right: 30px; }
+      .navbar__menu__item__link {
+        font-weight: bold;
+        color: #333333;
+        text-decoration: none;
+        opacity: 0.6; }
+      .navbar__menu__item--active .navbar__menu__item__link {
+        opacity: 1; }
+      .navbar__menu__item--humburger {
+        margin: 0; }
+        .navbar__menu__item--humburger__icon {
+          width: 16px; }
+  @media (min-width: 769px) {
+    .navbar__menu__item--humburger {
+      display: none; } }
+  @media (max-width: 768px) {
+    .navbar {
+      justify-content: space-between;
+      border-bottom: none;
+      padding: 15px 20px; }
+      .navbar__menu__item--humburger ~ .navbar__menu__item {
+        display: none; } }
+
 .termo-control {
   position: relative;
   display: flex;
@@ -143,8 +181,5 @@
       font-weight: normal; }
 
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
   overflow: hidden; }
