@@ -1,0 +1,52 @@
+* {
+  font-family: 'Arial', sans-serif; }
+
+.termo-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  transform: rotate(270deg); }
+  .termo-control__arrow-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    box-shadow: -1px 0px 4px 0 rgba(134, 121, 71, 0.45);
+    border-radius: 50%;
+    z-index: 1000px; }
+    .termo-control__arrow-wrapper__arrow {
+      width: 10px;
+      position: absolute;
+      z-index: 10000;
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      pointer-events: none; }
+    .termo-control__arrow-wrapper__value {
+      font-size: 46px;
+      transform: rotate(90deg);
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-select: none; }
+  .termo-control .line {
+    width: 1px;
+    height: 180px;
+    position: absolute;
+    z-index: 900px; }
+    .termo-control .line .content {
+      height: 15px;
+      background: #333333; }
+    .termo-control .line.active .content {
+      background: #f7c475; }
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden; }

@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "npm-run-all --parallel liveserver watch:scss ",
     "liveserver": "live-server",
-    "watch:scss": "node-sass sass/main.scss css/style.css -w",
-    "build:scss": "node-sass sass/main.scss css/style.css --output-style compressed"
+    "watch:scss": "node-sass style/sass/main.scss style/css/style.css -w",
+    "build:scss": "node-sass style/sass/main.scss style/css/style.css --output-style compressed"
   },
   "dependencies": {
     "live-server": "^1.2.0"
