@@ -1,0 +1,66 @@
+.info-card {
+    display: flex;
+    flex-flow: column nowrap;
+    height: auto;
+    padding: 14px;
+    margin-bottom: 15px;
+    background: #F7F7F7;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        background: white;
+        box-shadow: $shadow-gray;
+        z-index: 10000;
+    }
+
+    &__img {
+        width: 24px;
+        height: 24px;
+    }
+
+    &__details {
+
+        &__title {
+            font-size: 13px;
+            margin: 5px 0;
+        }
+
+        &__sub-title {
+            font-size: 11px;
+            margin: 0;
+            color: $gray;
+        }
+    }
+
+    &--space-between {
+        justify-content: space-between;
+    }
+
+    &--hide {
+        display: none;
+        // animation: slide-left 1s ease-in-out;
+        // animation-direction: normal;
+        // animation-iteration-count: 1;
+        // animation-fill-mode: forwards;
+    }
+
+    @keyframes slide-left {
+        0% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        99% {
+            opacity: 0;
+            transform: translateX(-600px);
+        }
+
+        100% {
+            position: absolute;
+            left: -600px;
+        }
+        
+    }
+}

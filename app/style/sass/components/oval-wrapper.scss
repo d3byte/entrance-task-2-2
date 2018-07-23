@@ -1,0 +1,28 @@
+.oval-wrapper {
+    padding: 6px 15px;
+    font-size: 12px;
+    font-weight: bold;
+    background: $light-gray;
+    border-radius: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    word-break: keep-all;
+    word-wrap: none;
+
+    &--active {
+        background: $yellow;
+    }
+
+    &--hidden {
+        display: none;
+    }
+
+    &__icon {
+        width: 6px;
+        margin-left: 3px;
+        margin-bottom: -1px;
+        &--arrow {
+            transform: rotate(-90deg);
+        }
+    }
+}

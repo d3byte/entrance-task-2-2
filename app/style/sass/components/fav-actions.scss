@@ -1,0 +1,29 @@
+.fav-actions {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > .info-card {
+        width: 32%;
+        margin-right: 2%;
+        
+        &:nth-of-type(3n) {
+            margin-right: 0;
+        }
+
+        &:nth-of-type(7n), &:nth-of-type(8n), &:nth-of-type(9n) {
+            margin-bottom: 0;
+        }
+    }
+
+    @media (max-width: 768px) {
+        max-width: 100%;
+        width: 100%;
+        overflow-x: scroll;
+        flex-wrap: nowrap;
+        & > .info-card {
+            width: 200px;
+            margin: 0 20px 0 0;
+            flex-shrink: 0;
+        }
+    }
+}

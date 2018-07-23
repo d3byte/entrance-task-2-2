@@ -1,0 +1,107 @@
+.status-block {
+    display: flex;
+    width: 100%;
+    min-height: 220px;
+    max-height: 44vh;
+    background: url('../../../assets/bg@1x.png') no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+
+    &__info {
+        width: 65%;
+        padding: 25px 0 25px 25px;
+
+        &__greeting {
+            font-size: 26px;
+            margin: 0;
+            word-wrap: break-word;
+        }
+
+        &__status {
+            font-size: 14px;
+            margin: 10px 0;
+            word-wrap: break-word;
+        }
+
+        &__weather {
+            display: flex;
+            margin-top: 15px;
+
+            &__item {
+                margin-right: 20px;
+                &:last-of-type {
+                    margin-right: 0;
+                }
+
+                &__location {
+                    font-size: 15px;
+                    color: $gray;
+                    margin: 0 0 0 5px;
+                }
+    
+                &__value {
+                    display: flex;
+                    align-items: center;
+                    margin: 0;
+                    font-weight: bold;
+                    font-size: 36px;
+
+                    &__icon {
+                        width: 26px;
+                        height: 26px;
+                        margin-left: 5px;
+                    }
+                }
+            }
+        }
+        
+    }
+
+    &__devices {
+        width: 35%;
+        padding: 20px 20px 0 0;
+        overflow-y: scroll;
+        & > .info-card {
+            min-height: 120px;
+        }
+    }
+
+    @media (max-width: 950px) {
+        justify-content: space-between;
+        &__info {
+            width: 54%;
+        }
+
+        &__devices {
+            width: 45%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        overflow: hidden;
+        max-height: none;
+
+        &__info {
+            width: 100%;
+            padding: 25px;
+            padding-right: 25px;
+        }
+
+        &__devices {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 25px 25px 25px;
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: scroll;
+
+            .info-card {
+                width: 200px;
+                margin: 0 20px 0 0;
+                flex-shrink: 0;
+            }
+        }
+    }
+
+}

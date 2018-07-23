@@ -1,0 +1,25 @@
+.fav-gadgets {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: visible;
+    padding-bottom: 3px; 
+
+    .info-card {
+        width: 200px;
+        margin: 0 20px 0 0;
+        flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+        overflow-x: scroll;
+        margin-bottom: 30px;
+
+        & > .info-card {
+            width: 200px;
+            margin: 0 20px 0 0;
+            flex-shrink: 0;
+        }
+    }
+}

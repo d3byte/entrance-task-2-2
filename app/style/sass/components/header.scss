@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding: 25px $container-padding-horizontal;
+    max-height: 15vh;
+    border-bottom: 1px solid $light-gray;
+
+    &__logo {
+        width: 108px;
+        height: 27px;
+        margin-right: 40px;
+    }
+
+    @media (max-width: 768px) {
+        justify-content: space-between;
+        border-bottom: none;
+        padding: 15px $container-padding-horizontal--mobile;
+    }
+
+}

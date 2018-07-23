@@ -1,10 +1,20 @@
 @import 'abstracts/variables';
 
-@import 'base/typography';
+@import 'base/base';
 
 
-@import 'components/navbar';
+@import 'components/nav';
+@import 'components/header';
 @import 'components/termo-control';
 @import 'components/range-input';
+@import 'components/content-container';
+@import 'components/status-block';
+@import 'components/info-card';
+@import 'components/controls';
+@import 'components/fav-actions';
+@import 'components/fav-gadgets';
+@import 'components/oval-wrapper';
+@import 'components/footer';
+@import 'components/popup';
 
 @import 'layout/index';
