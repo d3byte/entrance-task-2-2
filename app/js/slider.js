@@ -13,7 +13,7 @@ const favActionsSlider = new createSlider(
     '.home__half-splitted-section .content-container:nth-of-type(2) .info-card',
     document.querySelector(btns[0][0]),
     document.querySelector(btns[0][1]),
-    6
+    9
 )
 
 reCalculateRowsInFavEvents()
@@ -22,20 +22,53 @@ window.onresize = reCalculateRowsInFavEvents
 
 function createSlider(elemSelector, btnBackwards, btnForwards, difference = 6) {
     const elems = document.querySelectorAll(elemSelector)
+    
     this.difference = difference
 
     let currentElemGroup = [0, difference]
 
-    this.updateElems = () => {
-        let index = 0
+    this.updateElems = (animated = false, toRight = true) => {
+        let index = 0, indexOfCurrentGroup = 0
         for (let elem of elems) {
-            if (index < currentElemGroup[0] || index >= currentElemGroup[1] ) {
+            index++
+            if (index < currentElemGroup[0] || index > currentElemGroup[1]) {
+                if (animated) {
+                    const animation = toRight ? 'slide-left' : 'slide-right'
+                    elem.classList.add(animation)
+                    elem.style.position = 'absolute'
+                    setTimeout(() => {
+                        elem.style.position = 'relative'
+                        elem.classList.remove(animation)
+                        elem.classList.add('info-card--hide')
+                    }, 300)
+                    continue
+                }
                 elem.classList.add('info-card--hide')
-                index++
                 continue
             }
+            indexOfCurrentGroup++
+
+            if (this.difference === 9 && (indexOfCurrentGroup % 7 === 0 || indexOfCurrentGroup % 8 === 0 || indexOfCurrentGroup % 9 === 0)) {
+                elem.classList.add('no-margin-bottom')
+            } else {
+                elem.classList.remove('no-margin-bottom')
+            }
+
+            if (indexOfCurrentGroup % 3 === 0) {
+                elem.classList.add('no-margin-right')
+            } else {
+                elem.classList.remove('no-margin-right')
+            }
+
+            
+            if (animated) {
+                const animation = toRight ? 'slide-right-left' : 'slide-left-right'
+                elem.classList.add(animation)
+                setTimeout(() => {
+                    elem.classList.remove(animation)
+                }, 500)
+            }
             elem.classList.remove('info-card--hide')
-            index++
         }
     }
 
@@ -92,7 +125,7 @@ function createSlider(elemSelector, btnBackwards, btnForwards, difference = 6) {
             updateForwardButton()
             updateBackButton()
 
-            this.updateElems()
+            this.updateElems(true, false)
         }
     })
 
@@ -107,7 +140,7 @@ function createSlider(elemSelector, btnBackwards, btnForwards, difference = 6) {
             updateForwardButton()
             updateBackButton()
 
-            this.updateElems()
+            this.updateElems(true)
         }
     })
     

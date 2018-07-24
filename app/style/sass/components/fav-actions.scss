@@ -1,17 +1,63 @@
 .fav-actions {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
 
     & > .info-card {
         width: 32%;
         margin-right: 2%;
-        
-        &:nth-of-type(3n) {
+        top: 0;
+
+        &.no-margin-bottom {
+            margin-bottom: 0;
+        }
+
+        &.no-margin-right {
             margin-right: 0;
         }
 
-        &:nth-of-type(7n), &:nth-of-type(8n), &:nth-of-type(9n) {
-            margin-bottom: 0;
+        &.slide-left {
+            animation: slide-left 0.3s ease-in-out;
+            animation-fill-mode: forwards;
+            -moz-animation: slide-left 0.3s ease-in-out;
+            -moz-animation-fill-mode: forwards;
+            -o-animation: slide-left 0.3s ease-in-out;
+            -o-animation-fill-mode: forwards;
+            -ms-animation: slide-left 0.3s ease-in-out;
+            -ms-animation-fill-mode: forwards;
+        }
+
+        &.slide-right {
+            animation: slide-right 0.3s ease-in-out;
+            animation-fill-mode: forwards;
+            -moz-animation: slide-right 0.3s ease-in-out;
+            -moz-animation-fill-mode: forwards;
+            -o-animation: slide-right 0.3s ease-in-out;
+            -o-animation-fill-mode: forwards;
+            -ms-animation: slide-right 0.3s ease-in-out;
+            -ms-animation-fill-mode: forwards;
+        }
+
+        &.slide-right-left {
+            animation: slide-right-left .5s ease-in-out;
+            animation-fill-mode: forwards;
+            -moz-animation: slide-right-left .5s ease-in-out;
+            -moz-animation-fill-mode: forwards;
+            -o-animation: slide-right-left .5s ease-in-out;
+            -o-animation-fill-mode: forwards;
+            -ms-animation: slide-right-left .5s ease-in-out;
+            -ms-animation-fill-mode: forwards;
+        }
+
+        &.slide-left-right {
+            animation: slide-left-right .5s ease-in-out;
+            animation-fill-mode: forwards;
+            -moz-animation: slide-left-right .5s ease-in-out;
+            -moz-animation-fill-mode: forwards;
+            -o-animation: slide-left-right .5s ease-in-out;
+            -o-animation-fill-mode: forwards;
+            -ms-animation: slide-left-right .5s ease-in-out;
+            -ms-animation-fill-mode: forwards;
         }
     }
 
@@ -24,6 +70,85 @@
             width: 200px;
             margin: 0 20px 0 0;
             flex-shrink: 0;
+        }
+    }
+
+    @mixin keyframes($name) {
+        @-webkit-keyframes #{$name} {
+            @content;
+        }
+        @-moz-keyframes #{$name} {
+            @content;
+        }
+        @-ms-keyframes #{$name} {
+            @content;
+        }
+        @keyframes #{$name} {
+            @content;
+        }
+      }
+
+    @include keyframes(slide-right-left) {
+        0% {
+            opacity: 0;
+            transform: translateX(250px);
+            -moz-transform: translateX(250px);
+            -o-transform: translateX(250px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+            -moz-transform: translateX(0);
+            -o-transform: translateX(0);
+        }
+    }
+
+    @include keyframes(slide-left-right) {
+        0% {
+            opacity: 0;
+            transform: translateX(-250px);
+            -moz-transform: translateX(-250px);
+            -o-transform: translateX(-250px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+            -moz-transform: translateX(0);
+            -o-transform: translateX(0);
+        }
+    }
+
+    @include keyframes(slide-left) {
+        0% {
+            opacity: 1;
+            transform: translateX(0);
+            -moz-transform: translateX(0);
+            -o-transform: translateX(0);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translateX(-250px);
+            -moz-transform: translateX(-250px);
+            -o-transform: translateX(-250px);
+        }
+    }
+
+    @include keyframes(slide-right) {
+        0% {
+            opacity: 1;
+            transform: translateX(0);
+            -moz-transform: translateX(250px);
+            -o-transform: translateX(0);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translateX(500px);
+            -moz-transform: translateX(500px);
+            -o-transform: translateX(500px);
         }
     }
 }
