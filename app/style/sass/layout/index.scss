@@ -6,22 +6,23 @@ body {
     height: 100vh;
     overflow: hidden;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         min-height: 100vh;
         height: auto;
-        overflow: scroll;
+        overflow-y: scroll;
+    }
+
+    @media (max-width: 768px) {
+        padding-bottom: 0;
     }
 }
 
 .home {
     padding: 0 $container-padding-horizontal;
-    // max-height: 70vh;
-    overflow: hidden;
 
     &__half-splitted-section {
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
         & > * {
             width: 49%;
         }
