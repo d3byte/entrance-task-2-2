@@ -9,18 +9,28 @@ const btns = [
     ]
 ]
 
-const favActionsSlider = new createSlider(
+const favActionsSlider = new createActionsSlider(
     '.home__half-splitted-section .content-container:nth-of-type(2) .info-card',
     document.querySelector(btns[0][0]),
     document.querySelector(btns[0][1]),
     9
 )
 
+const favGadgetsSlider = new createGadgetsSlider(
+    '.home > .content-container .info-card',
+    document.querySelector(btns[1][0]),
+    document.querySelector(btns[1][1])
+)
+
 reCalculateRowsInFavEvents()
+favGadgetsSlider.updateScreenSizeInfo()
 
-window.onresize = reCalculateRowsInFavEvents
+window.onresize = e => {
+    reCalculateRowsInFavEvents()
+    favGadgetsSlider.updateScreenSizeInfo()
+}
 
-function createSlider(elemSelector, btnBackwards, btnForwards, difference = 6) {
+function createActionsSlider(elemSelector, btnBackwards, btnForwards, difference = 6) {
     const elems = document.querySelectorAll(elemSelector)
     
     this.difference = difference
@@ -44,20 +54,25 @@ function createSlider(elemSelector, btnBackwards, btnForwards, difference = 6) {
                     continue
                 }
                 elem.classList.add('info-card--hide')
+            
                 continue
             }
+
             indexOfCurrentGroup++
+            const screenWidth = window.screen.innerWidth || document.clientWidth || document.body.clientWidth
 
-            if (this.difference === 9 && (indexOfCurrentGroup % 7 === 0 || indexOfCurrentGroup % 8 === 0 || indexOfCurrentGroup % 9 === 0)) {
-                elem.classList.add('no-margin-bottom')
-            } else {
-                elem.classList.remove('no-margin-bottom')
-            }
-
-            if (indexOfCurrentGroup % 3 === 0) {
-                elem.classList.add('no-margin-right')
-            } else {
-                elem.classList.remove('no-margin-right')
+            if (screenWidth > 768) {
+                if (this.difference === 9 && (indexOfCurrentGroup % 7 === 0 || indexOfCurrentGroup % 8 === 0 || indexOfCurrentGroup % 9 === 0)) {
+                    elem.classList.add('no-margin-bottom')
+                } else {
+                    elem.classList.remove('no-margin-bottom')
+                }
+    
+                if (indexOfCurrentGroup % 3 === 0) {
+                    elem.classList.add('no-margin-right')
+                } else {
+                    elem.classList.remove('no-margin-right')
+                }
             }
 
             
@@ -146,11 +161,98 @@ function createSlider(elemSelector, btnBackwards, btnForwards, difference = 6) {
     
 }
 
+function createGadgetsSlider(elemSelector, btnBackwards, btnForwards) {
+    const elems = document.querySelectorAll(elemSelector)
+    const styles = window.getComputedStyle(elems[0])
+    
+    this.screenWidth = window.screen.innerWidth || document.clientWidth || document.body.clientWidth
+    this.containerWidth = document.querySelector('.fav-gadgets').clientWidth
+    this.difference = elems[0].clientWidth + parseInt(styles['marginRight'])
+    this.cardsInViewport = Math.floor((this.containerWidth + parseInt(styles['marginRight'])) / this.difference)
+    this.currentElemGroup = [0, this.cardsInViewport - 1]
+    this.transitionState = 0
+
+    this.updateScreenSizeInfo = () => {
+        this.screenWidth = window.screen.innerWidth || document.clientWidth || document.body.clientWidth
+        this.containerWidth = document.querySelector('.fav-gadgets').clientWidth
+        this.cardsInViewport = Math.floor((this.containerWidth + parseInt(styles['marginRight'])) / this.difference)
+        this.currentElemGroup = [0, this.cardsInViewport - 1]
+        this.resetTransitions()
+        this.updateBackButton()
+        this.updateForwardButton()
+    }
+
+    this.resetTransitions = () => {
+        this.transitionState = 0
+        for (let elem of elems) {
+            elem.style.transform = 'translateX(0)'
+        }
+    }
+
+    this.transitionToRight = () => {
+        if (this.currentElemGroup[1] < elems.length - 1) {
+            this.currentElemGroup[0] += this.cardsInViewport
+            this.currentElemGroup[1] += this.cardsInViewport
+            this.transitionState -= this.difference * (this.currentElemGroup[1] - this.currentElemGroup[0] + 1)
+            for (let elem of elems) {
+                elem.style.transform = `translateX(${this.transitionState}px)`
+            }
+        }
+    }
+
+    this.transitionToLeft = () => {
+        if (this.currentElemGroup[0] > 0) {
+            this.currentElemGroup[0] -= this.cardsInViewport
+            this.currentElemGroup[1] -= this.cardsInViewport
+            this.transitionState += this.difference * (this.currentElemGroup[1] - this.currentElemGroup[0] + 1)
+            for (let elem of elems) {
+                elem.style.transform = `translateX(${this.transitionState}px)`
+            }
+        }
+    }
+
+    
+    this.updateBackButton = () => {
+        if (this.currentElemGroup[0] !== 0) {
+            btnBackwards.setAttribute('src', 'assets/Icons/arrow_slide.png')
+            btnBackwards.style.cursor = 'pointer'
+            return
+        }
+        btnBackwards.style.cursor = 'default'
+        btnBackwards.setAttribute('src', 'assets/Icons/ Arrow Right / M Copy@2x.png')
+    }
+    
+    this.updateForwardButton = () => {
+        if (this.currentElemGroup[1] < elems.length - 1) {
+            btnForwards.setAttribute('src', 'assets/Icons/arrow_slide.png')
+            btnForwards.style.cursor = 'pointer'
+            return
+        }
+        btnForwards.setAttribute('src', 'assets/Icons/ Arrow Right / M Copy@2x.png')
+        btnForwards.style.cursor = 'default'
+    }
+
+    btnForwards.addEventListener('click', () => {
+        this.transitionToRight()
+        this.updateForwardButton()
+        this.updateBackButton()
+    })
+
+    btnBackwards.addEventListener('click', () => {
+        this.transitionToLeft()
+        this.updateForwardButton()
+        this.updateBackButton()
+    })
+
+    this.updateForwardButton()
+    this.updateBackButton()
+}
+
 function reCalculateRowsInFavEvents() {
     const screenWidth = window.screen.innerWidth || document.clientWidth || document.body.clientWidth
     const screenHeight = window.screen.innerHeight|| document.clientHeight|| document.body.clientHeight
     
-    if (screenWidth >= 768 && screenHeight >= 640) {
+    if (screenWidth >= 768 && screenHeight >= 670) {
         favActionsSlider.updateDifference(9)
     } else if (screenWidth <= 1280 && screenWidth >= 1024 && screenHeight <= 640) {
         favActionsSlider.updateDifference(6)

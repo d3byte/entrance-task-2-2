@@ -10,6 +10,54 @@
         width: 200px;
         margin: 0 20px 0 0;
         flex-shrink: 0;
+        transition: transform .6s ease-in-out;
+
+        &.slide-left {
+            transition: none;
+            animation: slide-left 0.3s ease-in-out;
+            animation-fill-mode: forwards;
+            -moz-animation: slide-left 0.3s ease-in-out;
+            -moz-animation-fill-mode: forwards;
+            -o-animation: slide-left 0.3s ease-in-out;
+            -o-animation-fill-mode: forwards;
+            -ms-animation: slide-left 0.3s ease-in-out;
+            -ms-animation-fill-mode: forwards;
+        }
+
+        &.slide-right {
+            transition: none;
+            animation: slide-right 0.3s ease-in-out;
+            animation-fill-mode: forwards;
+            -moz-animation: slide-right 0.3s ease-in-out;
+            -moz-animation-fill-mode: forwards;
+            -o-animation: slide-right 0.3s ease-in-out;
+            -o-animation-fill-mode: forwards;
+            -ms-animation: slide-right 0.3s ease-in-out;
+            -ms-animation-fill-mode: forwards;
+        }
+
+        &.slide-right-left {
+            animation: slide-right-left .5s ease-in-out;
+            animation-fill-mode: forwards;
+            -moz-animation: slide-right-left .5s ease-in-out;
+            -moz-animation-fill-mode: forwards;
+            -o-animation: slide-right-left .5s ease-in-out;
+            -o-animation-fill-mode: forwards;
+            -ms-animation: slide-right-left .5s ease-in-out;
+            -ms-animation-fill-mode: forwards;
+        }
+
+        &.slide-left-right {
+            animation: slide-left-right .5s ease-in-out;
+            animation-fill-mode: forwards;
+            -moz-animation: slide-left-right .5s ease-in-out;
+            -moz-animation-fill-mode: forwards;
+            -o-animation: slide-left-right .5s ease-in-out;
+            -o-animation-fill-mode: forwards;
+            -ms-animation: slide-left-right .5s ease-in-out;
+            -ms-animation-fill-mode: forwards;
+        }
+
     }
 
     @media (max-width: 768px) {
@@ -20,6 +68,85 @@
             width: 200px;
             margin: 0 20px 0 0;
             flex-shrink: 0;
+        }
+    }
+
+    @mixin keyframes($name) {
+        @-webkit-keyframes #{$name} {
+            @content;
+        }
+        @-moz-keyframes #{$name} {
+            @content;
+        }
+        @-ms-keyframes #{$name} {
+            @content;
+        }
+        @keyframes #{$name} {
+            @content;
+        }
+      }
+
+    @include keyframes(slide-right-left) {
+        0% {
+            opacity: 0;
+            transform: translateX(250px);
+            -moz-transform: translateX(250px);
+            -o-transform: translateX(250px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+            -moz-transform: translateX(0);
+            -o-transform: translateX(0);
+        }
+    }
+
+    @include keyframes(slide-left-right) {
+        0% {
+            opacity: 0;
+            transform: translateX(-250px);
+            -moz-transform: translateX(-250px);
+            -o-transform: translateX(-250px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+            -moz-transform: translateX(0);
+            -o-transform: translateX(0);
+        }
+    }
+
+    @include keyframes(slide-left) {
+        0% {
+            opacity: 1;
+            transform: translateX(0);
+            -moz-transform: translateX(0);
+            -o-transform: translateX(0);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translateX(-250px);
+            -moz-transform: translateX(-250px);
+            -o-transform: translateX(-250px);
+        }
+    }
+
+    @include keyframes(slide-right) {
+        0% {
+            opacity: 1;
+            transform: translateX(0);
+            -moz-transform: translateX(250px);
+            -o-transform: translateX(0);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translateX(500px);
+            -moz-transform: translateX(500px);
+            -o-transform: translateX(500px);
         }
     }
 }
