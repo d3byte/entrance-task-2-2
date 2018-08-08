@@ -17,8 +17,8 @@
 
     @mixin range-slider {
         cursor: pointer;
-        width: 36px;
-        height: 36px;
+        width: 44px;
+        height: 44px;
         border: 4px solid white;
         border-radius: 50%;
         background: transparent;
@@ -75,8 +75,8 @@
         &::-webkit-slider-thumb {
             @include range-slider;
             -webkit-appearance: none;
-            width: 44px;
-            height: 44px;
+            width: 52px;
+            height: 52px;
         }
         &::-moz-range-thumb {
             @include range-slider;
@@ -91,7 +91,7 @@
 
     &__background {
         width: 100%;
-        height: 24px;
+        height: 44px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -115,6 +115,10 @@
             font-weight: normal;
         }
 
+    }
+
+    @media (max-width: 768px) {
+        @include range-slider--vertical;
     }
 
 }

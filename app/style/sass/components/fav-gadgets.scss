@@ -12,6 +12,10 @@
         flex-shrink: 0;
         transition: transform .6s ease-in-out;
 
+        * {
+            pointer-events: none;
+        }
+
         &.slide-left {
             transition: none;
             animation: slide-left 0.3s ease-in-out;

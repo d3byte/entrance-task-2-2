@@ -1,7 +1,7 @@
 const screenWidth = window.screen.innerWidth || document.clientWidth || document.body.clientWidth
 const screenHeight = window.screen.innerHeight|| document.clientHeight|| document.body.clientHeight
 
-const categories = document.querySelectorAll('.oval-wrapper')
+const categories = document.querySelectorAll('.content-container__header__title .oval-wrapper')
 
 mapElementsAndHideNotActive(true, elem => elem.addEventListener('click', handleCategoryClick), categories[0])
 

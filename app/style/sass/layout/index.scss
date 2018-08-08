@@ -36,6 +36,10 @@ body {
             justify-content: flex-start;
             & > * {
                 width: 100%;
+
+                &:first-of-type {
+                    margin-top: 40px;
+                }
             }
         }
     }

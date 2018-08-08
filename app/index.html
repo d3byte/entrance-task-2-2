@@ -9,22 +9,6 @@
     <link rel="stylesheet" href="style/css/style.css" />
 </head>
 <body>
-    <!-- <div class="termo-control">
-        <div class="termo-control__arrow-wrapper">
-            <img src="assets/Icons/arrow.svg" class="termo-control__arrow-wrapper__arrow">
-            <h3 class="termo-control__arrow-wrapper__value"></h3>
-        </div>
-    </div>
-    <script src="js/termo-control.js"></script> -->
-    <!-- <div class="range-input">
-        <input class="range-input__input" type="range" min="1" max="100" />
-        <div class="range-input__background"> -->
-            <!-- <span class="range-input__background__value">-10</span>
-            <span class="range-input__background__value">+30</span> -->
-            <!-- <img class="range-input__background__icon" src="assets/Icons/sun.svg">
-            <img class="range-input__background__icon" src="assets/Icons/sun.svg">
-        </div>
-    </div> -->
     <nav class="header">
         <img class="header__logo" src="assets/Яндекс Дом@2x.png">
         <ul class="nav">
@@ -306,7 +290,7 @@
             </header>
             <div class="content-container__main">
                 <div class="fav-gadgets">
-                    <div class="info-card info-card--space-between">
+                    <div class="info-card info-card--space-between" data-popup-type="light-control--range">
                         <img 
                             class="info-card__img"
                             src="assets/icon_sun_2@2x.png"
@@ -316,7 +300,7 @@
                             <p class="info-card__details__sub-title">Включено</p>
                         </div>
                     </div>
-                    <div class="info-card info-card--space-between">
+                    <div class="info-card info-card--space-between" data-popup-type="light-control--range">
                         <img 
                             class="info-card__img"
                             src="assets/icon_sun@2x.png"
@@ -326,7 +310,7 @@
                             <p class="info-card__details__sub-title">Включится в 17:00</p>
                         </div>
                     </div>
-                    <div class="info-card info-card--space-between">
+                    <div class="info-card info-card--space-between" data-popup-type="termo-control--range">
                         <img 
                             class="info-card__img"
                             src="assets/icon_temperature@2x.png"
@@ -336,7 +320,17 @@
                             <p class="info-card__details__sub-title">Выключено до 17:00</p>
                         </div>
                     </div>
-                    <div class="info-card info-card--space-between">
+                    <div class="info-card info-card--space-between" data-popup-type="termo-control">
+                        <img 
+                            class="info-card__img"
+                            src="assets/icon_temperature_2@2x.png"
+                        >
+                        <div class="info-card__details">
+                            <h5 class="info-card__details__title">Xiaomi Warm Floor</h5>
+                            <p class="info-card__details__sub-title">Включено</p>
+                        </div>
+                    </div>
+                    <div class="info-card info-card--space-between" data-popup-type="light-control--range">
                         <img 
                             class="info-card__img"
                             src="assets/icon_sun@2x.png"
@@ -346,7 +340,7 @@
                             <p class="info-card__details__sub-title">Включится в 17:00</p>
                         </div>
                     </div>
-                    <div class="info-card info-card--space-between">
+                    <div class="info-card info-card--space-between" data-popup-type="light-control--range">
                         <img 
                             class="info-card__img"
                             src="assets/icon_sun_2@2x.png"
@@ -356,67 +350,7 @@
                             <p class="info-card__details__sub-title">Включено</p>
                         </div>
                     </div>
-                    <div class="info-card info-card--space-between">
-                        <img 
-                            class="info-card__img"
-                            src="assets/icon_sun_2@2x.png"
-                        >
-                        <div class="info-card__details">
-                            <h5 class="info-card__details__title">Philips Zhirui</h5>
-                            <p class="info-card__details__sub-title">Выключено</p>
-                        </div>
-                    </div>
-                    <div class="info-card info-card--space-between">
-                        <img 
-                            class="info-card__img"
-                            src="assets/icon_sun_2@2x.png"
-                        >
-                        <div class="info-card__details">
-                            <h5 class="info-card__details__title">Xiaomi Yeelight LED Smart Bulb</h5>
-                            <p class="info-card__details__sub-title">Включено</p>
-                        </div>
-                    </div>
-                    <div class="info-card info-card--space-between">
-                        <img 
-                            class="info-card__img"
-                            src="assets/icon_sun@2x.png"
-                        >
-                        <div class="info-card__details">
-                            <h5 class="info-card__details__title">D-Link Omna 180 Cam</h5>
-                            <p class="info-card__details__sub-title">Включится в 17:00</p>
-                        </div>
-                    </div>
-                    <div class="info-card info-card--space-between">
-                        <img 
-                            class="info-card__img"
-                            src="assets/icon_temperature@2x.png"
-                        >
-                        <div class="info-card__details">
-                            <h5 class="info-card__details__title">Elgato Eve Degree Connected</h5>
-                            <p class="info-card__details__sub-title">Выключено до 17:00</p>
-                        </div>
-                    </div>
-                    <div class="info-card info-card--space-between">
-                        <img 
-                            class="info-card__img"
-                            src="assets/icon_sun@2x.png"
-                        >
-                        <div class="info-card__details">
-                            <h5 class="info-card__details__title">LIFX Mini Day & Dusk A60 E27</h5>
-                            <p class="info-card__details__sub-title">Включится в 17:00</p>
-                        </div>
-                    </div>
-                    <div class="info-card info-card--space-between">
-                        <img 
-                            class="info-card__img"
-                            src="assets/icon_sun_2@2x.png"
-                        >
-                        <div class="info-card__details">
-                            <h5 class="info-card__details__title">Xiaomi Mi Air Purifier 2S</h5>
-                            <p class="info-card__details__sub-title">Включено</p>
-                        </div>
-                    </div>
-                    <div class="info-card info-card--space-between">
+                    <div class="info-card info-card--space-between" data-popup-type="light-control--range">
                         <img 
                             class="info-card__img"
                             src="assets/icon_sun_2@2x.png"
@@ -447,19 +381,103 @@
         </ul>
         <span class="footer__copyright">© 2001–2017  ООО «Яндекс»</span>
     </footer>
-    <!-- <div class="popup-blur"></div>
-    <div class="popup">
-        <div class="modal__container">
-
+    <div class="popup-blur hide"></div>
+    <div class="popup hide" data-popup-type="termo-control">
+        <div class="popup__container">
+            <header class="popup__container__header">
+                <div class="popup__container__header__info">
+                    <h2 class="popup__container__header__info__title">Xiaomi Warm Floor</h2>
+                    <p class="popup__container__header__info__status">Включено</p>
+                </div>
+                <div class="popup__container__header__sub-info">
+                    <h2 class="popup__container__header__sub-info__title">+23</h2>
+                    <img class="popup__container__header__sub-info__icon" src="assets/icon_temperature_2@2x.png">
+                </div>
+            </header>
+            <main class="popup__container__main">
+                <div class="termo-control">
+                    <div class="termo-control__arrow-wrapper">
+                        <img src="assets/Icons/arrow.svg" class="termo-control__arrow-wrapper__arrow">
+                        <h3 class="termo-control__arrow-wrapper__value"></h3>
+                    </div>
+                </div>
+            </main>
         </div>
-        <div class="modal__actions">
-            <button class="modal__actions__button modal__actions__button--yellow">Применить</button>
-            <button class="modal__actions__button">Закрыть</button>
+        <div class="popup__actions">
+            <button class="popup__actions__button popup__actions__button--yellow">Применить</button>
+            <button class="popup__actions__button">Закрыть</button>
         </div>
-    </div> -->
+    </div>
+    <div class="popup hide" data-popup-type="light-control--range">
+        <div class="popup__container">
+            <header class="popup__container__header">
+                <div class="popup__container__header__info">
+                    <h2 class="popup__container__header__info__title">Xiaomi Yeelight LED Smart Bulb</h2>
+                    <p class="popup__container__header__info__status">Включится в 17:00</p>
+                </div>
+                <div class="popup__container__header__sub-info">
+                    <img class="popup__container__header__sub-info__icon" src="assets/icon_sun@2x.png">
+                </div>
+            </header>
+            <main class="popup__container__main popup__container__main--range">
+                <div class="popup__container__main__row">
+                    <span class="oval-wrapper oval-wrapper--active">Вручную</span>
+                    <span class="oval-wrapper">Дневной свет</span>
+                    <span class="oval-wrapper">Вечерний свет</span>
+                    <span class="oval-wrapper">Рассвет</span>
+                </div>
+                <div class="range-input">
+                    <input class="range-input__input" type="range" min="1" max="100" />
+                    <div class="range-input__background">
+                        <img class="range-input__background__icon" src="assets/Icons/sun.svg">
+                        <img class="range-input__background__icon" src="assets/Icons/sun.svg">
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="popup__actions">
+            <button class="popup__actions__button popup__actions__button--yellow">Применить</button>
+            <button class="popup__actions__button">Закрыть</button>
+        </div>
+    </div>
+    <div class="popup hide" data-popup-type="termo-control--range">
+        <div class="popup__container">
+            <header class="popup__container__header">
+                <div class="popup__container__header__info">
+                    <h2 class="popup__container__header__info__title">Elgato Eve Degree Connected</h2>
+                    <p class="popup__container__header__info__status">Включено</p>
+                </div>
+                <div class="popup__container__header__sub-info">
+                    <h2 class="popup__container__header__sub-info__title">+23</h2>
+                    <img class="popup__container__header__sub-info__icon" src="assets/icon_temperature_2@2x.png">
+                </div>
+            </header>
+            <main class="popup__container__main popup__container__main--range">
+                <div class="popup__container__main__row">
+                    <span class="oval-wrapper oval-wrapper--active">Вручную</span>
+                    <span class="oval-wrapper">Холодно</span>
+                    <span class="oval-wrapper">Тепло</span>
+                    <span class="oval-wrapper">Жарко</span>
+                </div>
+                <div class="range-input">
+                    <input class="range-input__input" type="range" min="1" max="100" />
+                    <div class="range-input__background range-input__background--multiple-gradient">
+                        <span class="range-input__background__value">-10</span>
+                        <span class="range-input__background__value">+30</span>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="popup__actions">
+            <button class="popup__actions__button popup__actions__button--yellow">Применить</button>
+            <button class="popup__actions__button">Закрыть</button>
+        </div>
+    </div>
 
     <script src="js/slider.js"></script>
     <script src="js/gadgets.js"></script>
     <script src="js/humburger.js"></script>
+    <script src="js/termo-control.js"></script>
+    <script src="js/popup.js"></script>
 </body>
 </html>
