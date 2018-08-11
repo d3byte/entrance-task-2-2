@@ -253,12 +253,12 @@ function reCalculateRowsInFavEvents() {
     const screenHeight = window.screen.innerHeight|| document.clientHeight|| document.body.clientHeight
     
     if (screenWidth > 768 && screenHeight >= 670) {
-        favActionsSlider.updateDifference(9);
+        favActionsSlider.updateDifference(9)
     } else if (screenWidth <= 1280 && screenWidth >= 1024 && screenHeight <= 650) {
-        favActionsSlider.updateDifference(6);
+        favActionsSlider.updateDifference(6)
     } else if (screenWidth < 1024 && screenWidth > 768 && screenHeight <= 600) {
-        favActionsSlider.updateDifference(3);
+        favActionsSlider.updateDifference(3)
     }  else if (screenWidth <= 768) {
-        favActionsSlider.deactivateForMobile();
+        favActionsSlider.deactivateForMobile()
     }
 }
