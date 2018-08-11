@@ -252,13 +252,13 @@ function reCalculateRowsInFavEvents() {
     const screenWidth = window.screen.innerWidth || document.clientWidth || document.body.clientWidth
     const screenHeight = window.screen.innerHeight|| document.clientHeight|| document.body.clientHeight
     
-    if (screenWidth >= 768 && screenHeight >= 670) {
-        favActionsSlider.updateDifference(9)
-    } else if (screenWidth <= 1280 && screenWidth >= 1024 && screenHeight <= 640) {
-        favActionsSlider.updateDifference(6)
-    } else if (screenWidth <= 1280 && screenWidth >= 769 && screenHeight <= 640) {
-        favActionsSlider.updateDifference()
-    } else if (screenWidth <= 768) {
-        favActionsSlider.deactivateForMobile()
+    if (screenWidth > 768 && screenHeight >= 670) {
+        favActionsSlider.updateDifference(9);
+    } else if (screenWidth <= 1280 && screenWidth >= 1024 && screenHeight <= 650) {
+        favActionsSlider.updateDifference(6);
+    } else if (screenWidth < 1024 && screenWidth > 768 && screenHeight <= 600) {
+        favActionsSlider.updateDifference(3);
+    }  else if (screenWidth <= 768) {
+        favActionsSlider.deactivateForMobile();
     }
 }
