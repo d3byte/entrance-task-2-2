@@ -12,11 +12,8 @@
         color: $gray;
     }
 
-    @media (max-width: 1024px) {
-        position: relative;
-    }
-
     @media (max-width: 768px) {
+        position: relative;
         padding: 10px $container-padding-horizontal--mobile;
         flex-direction: column;
         align-items: flex-start;
